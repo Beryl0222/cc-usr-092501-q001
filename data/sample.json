@@ -1,0 +1,9 @@
+{
+  "event_id": "092501-001-sample-001",
+  "event_type": "HANDOVER_RECORDED",
+  "aggregate_type": "returned_object",
+  "aggregate_id": "returned_artifact_accession-001",
+  "occurred_at": "2026-09-24T10:00:00+08:00",
+  "version": 1,
+  "summary": "登记返还文物入藏责任链的一条领域事实"
+}
