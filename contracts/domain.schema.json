@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/2020-12/schema",
   "title": "返还文物入藏责任链领域事件",
   "type": "object",
   "required": [
@@ -19,11 +19,25 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "BATCH_REGISTERED",
+        "SEAL_RECEIPTED",
+        "SEAL_QUARANTINED",
+        "SEAL_REVIEWED",
         "HANDOVER_RECORDED",
-        "CONDITION_ASSESSED",
+        "CONDITION_ASSESSED_RISK",
+        "OBJECT_FROZEN",
+        "DERIVATIVE_FROZEN_RECORD",
+        "OBJECT_UNFROZEN",
         "CUSTODY_TRANSFERRED",
+        "PROVENANCE_RECORDED",
+        "DISPUTE_RAISED",
+        "DISPUTE_CLEARED",
+        "RIGHTS_ATTACHED",
+        "DERIVATIVE_REQUESTED",
         "ACCESSION_DECIDED",
-        "CATALOG_RELEASED"
+        "ACCESSION_REVOKED",
+        "CATALOG_RELEASED",
+        "CATALOG_RELEASE_IMMUTABLE"
       ]
     },
     "aggregate_type": {
@@ -32,7 +46,13 @@
         "returned_object",
         "custody_lot",
         "condition_report",
-        "catalog_release"
+        "catalog_release",
+        "return_batch",
+        "seal_receipt",
+        "quarantine_ledger",
+        "provenance_record",
+        "rights_restriction",
+        "derivative_request"
       ]
     },
     "aggregate_id": {
@@ -50,6 +70,9 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object"
     }
   },
   "additionalProperties": true
