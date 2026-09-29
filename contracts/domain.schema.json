@@ -9,7 +9,9 @@
     "aggregate_id",
     "occurred_at",
     "version",
-    "summary"
+    "actor",
+    "summary",
+    "payload"
   ],
   "properties": {
     "event_id": {
@@ -19,19 +21,37 @@
     "event_type": {
       "type": "string",
       "enum": [
-        "HANDOVER_RECORDED",
-        "CONDITION_ASSESSED",
+        "BATCH_REGISTERED",
+        "SEAL_RECEIPT_RECORDED",
+        "SEAL_RECEIPT_QUARANTINED",
+        "SEAL_RECEIPT_RESOLVED",
+        "OBJECT_HANDED_OVER",
+        "MATERIAL_TESTED",
+        "DISEASE_REPORTED",
+        "OBJECT_FROZEN",
+        "OBJECT_UNFROZEN",
+        "APPLICATION_HELD",
+        "APPLICATION_RESUMED",
+        "PROVENANCE_RECORDED",
+        "DISPUTE_RECORDED",
+        "DISPUTE_CLEARED",
+        "RESTRICTION_RECORDED",
+        "RESTRICTION_LIFTED",
         "CUSTODY_TRANSFERRED",
+        "APPLICATION_SUBMITTED",
+        "APPLICATION_APPROVED",
+        "APPLICATION_REJECTED",
         "ACCESSION_DECIDED",
+        "ACCESSION_REVOKED",
         "CATALOG_RELEASED"
       ]
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
+        "return_batch",
         "returned_object",
-        "custody_lot",
-        "condition_report",
+        "application",
         "catalog_release"
       ]
     },
@@ -45,12 +65,25 @@
     },
     "version": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "description": "同一聚合内单调递增的事件版本"
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1,
+      "description": "事件责任人（入藏批准、撤销等前后责任据此追溯）"
     },
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object"
+    },
+    "causation_id": {
+      "type": ["string", "null"],
+      "description": "触发本事件的上游事件（如病害报告触发冻结）"
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

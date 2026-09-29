@@ -1,9 +1,16 @@
 {
   "event_id": "092501-001-sample-001",
-  "event_type": "HANDOVER_RECORDED",
+  "event_type": "OBJECT_HANDED_OVER",
   "aggregate_type": "returned_object",
   "aggregate_id": "returned_artifact_accession-001",
   "occurred_at": "2026-09-24T10:00:00+08:00",
   "version": 1,
-  "summary": "登记返还文物入藏责任链的一条领域事实"
+  "actor": "点交员示例",
+  "summary": "登记返还文物完成现场点交的一条领域事实",
+  "payload": {
+    "batch_id": "B-2026-0925",
+    "location": "临时库房A",
+    "custodian": "保管员示例"
+  },
+  "causation_id": null
 }
